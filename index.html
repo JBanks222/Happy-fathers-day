@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day Nick!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f4788 0%, #f58426 50%, #1f4788 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: clamp(12px, 3vw, 24px);
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            width: min(100%, 560px);
+            perspective: 1000px;
+        }
+
+        .card {
+            width: min(100%, 500px);
+            min-height: 600px;
+            max-height: calc(100vh - clamp(24px, 6vw, 48px));
+            background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, #1f4788, #f58426, #1f4788);
+        }
+
+        .knicks-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #f58426, #1f4788);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(31, 71, 136, 0.3);
+        }
+
+        h1 {
+            color: #1f4788;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .name {
+            color: #f58426;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        .trophy-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            height: 120px;
+        }
+
+        .trophy {
+            font-size: 84px;
+            line-height: 1;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-knicks {
+            background: linear-gradient(135deg, #1f4788, #0a2855);
+            color: white;
+        }
+
+        .btn-knicks:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(31, 71, 136, 0.4);
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                height: auto;
+                min-height: 0;
+                max-height: none;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+                margin-bottom: 8px;
+            }
+
+            .name {
+                font-size: 40px;
+                margin-bottom: 15px;
+            }
+
+            .message {
+                font-size: 16px;
+                margin: 20px 0;
+            }
+
+            .knicks-logo {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .trophy-container {
+                margin: 25px 0;
+                height: 120px;
+            }
+
+            .trophy {
+                font-size: 72px;
+            }
+
+            button {
+                padding: 14px 28px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+                align-items: flex-start;
+            }
+
+            .card {
+                width: 100%;
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .name {
+                font-size: 32px;
+                margin-bottom: 12px;
+            }
+
+            .message {
+                font-size: 15px;
+                line-height: 1.5;
+                margin: 15px 0;
+            }
+
+            .knicks-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .trophy-container {
+                margin: 20px 0;
+                height: 100px;
+            }
+
+            .trophy {
+                font-size: 60px;
+            }
+
+            button {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+
+            .button-group {
+                margin-top: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="knicks-logo">🏀</div>
+            <h1>Happy Father's Day</h1>
+            <div class="name">NICK</div>
+            
+            <p class="message">
+                You're the MVP of our family! 
+            </p>
+
+            <div class="trophy-container">
+                <div class="trophy" aria-label="Trophy">🏆</div>
+            </div>
+
+            <p class="message">
+                Thank you for all the love, support, and laughter. You knock it out of the park every single day! ❤️
+            </p>
+
+            <div class="button-group">
+                <button class="btn-knicks" onclick="celebrate()">Let's Go Knicks!</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function celebrate() {
+            createConfetti();
+            playSound();
+        }
+
+        function createConfetti() {
+            const colors = ['#1f4788', '#f58426', '#ffffff'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = '50%';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s ease-in forwards`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        function playSound() {
+            // Create a simple beep sound
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        // Add CSS animation for confetti
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add some personality
+        console.log("🏀 Happy Father's Day, Nick! 🏀");
+    </script>
+</body>
+</html>
